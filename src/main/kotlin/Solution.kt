@@ -14,21 +14,19 @@ class Solution {
         for(i in strList.indices){
             if(strList[i]==""){
                 result = result.append(" ")
-                continue
             }
-            strList[i] = strList[i].first().uppercase() + strList[i].substring(1..strList[i].lastIndex).lowercase()
-            if(i == strList.indices.last) {
-                result = result.append("${strList[i]}")
-                break
+            else {
+                strList[i] = strList[i].first().uppercase() + strList[i].substring(1..strList[i].lastIndex).lowercase()
+                result = result.append("${strList[i]} ")
             }
-            result = result.append("${strList[i]} ")
         }
-        answer = result.toString()//맨 뒷부분 공백 제거
+        result.deleteCharAt(result.length-1) //맨 뒷부분 공백 제거
+        answer = result.toString()//
         return answer
     }
 }
 fun main(){
     var a = Solution()
-    a.solution("  for the what 1what  ")
+    a.solution("  for the what 1what  ")//문자 마지막일때 예외처리를해야하네...
     a.solution("for the last week")
 }
