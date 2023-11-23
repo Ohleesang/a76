@@ -2,35 +2,33 @@
 
 class Solution {
     fun solution(s: String): String {
-<<<<<<< HEAD
-        var answer = ""
-        var strList = s.split(" ").toMutableList()
-        for(i in strList.indices){
-            strList[i] = strList[i].first().uppercase() + strList[i].substring(1..strList[i].lastIndex).lowercase()
-            answer = answer + strList[i]+" "
-        }
-        answer = answer.trimEnd()//맨 뒷부분 공백 제거
-=======
         //공백이 연속으로 나올때를 고려하지 않음;
+        //공백이 여러개이면 마찬가지로 출력값도 여러개이어야한다.
         var answer = ""
-        var result = StringBuilder()
+
+        var result = StringBuilder() //효율적인 문자열 관리
+
         var strList = s.split(" ").toMutableList()
-        while(strList.remove("")){}
+
+
         for(i in strList.indices){
+            if(strList[i]==""){
+                result = result.append(" ")
+                continue
+            }
             strList[i] = strList[i].first().uppercase() + strList[i].substring(1..strList[i].lastIndex).lowercase()
+            if(i == strList.indices.last) {
+                result = result.append("${strList[i]}")
+                break
+            }
             result = result.append("${strList[i]} ")
         }
-        answer = result.toString().trimEnd()//맨 뒷부분 공백 제거
->>>>>>> fdedbe9 (런타임 에러 오류(더 효율적으로 짜야하나보다..))
+        answer = result.toString()//맨 뒷부분 공백 제거
         return answer
     }
 }
 fun main(){
     var a = Solution()
-<<<<<<< HEAD
-    a.solution("3people unFollowed me")
-=======
-    a.solution("3people  unFollowed  me")
->>>>>>> fdedbe9 (런타임 에러 오류(더 효율적으로 짜야하나보다..))
+    a.solution("  for the what 1what  ")
     a.solution("for the last week")
 }
