@@ -21,7 +21,7 @@ class Solution {
             }
         }
         result.deleteCharAt(result.length-1) //맨 뒷부분 공백 제거
-        answer = result.toString()//
+        answer = result.toString()
         return answer
     }
 }
